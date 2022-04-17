@@ -1,0 +1,24 @@
+# Avoid methods longer than 30 lines of code
+AllCops:
+  NewCops: disable
+  Exclude:
+    - spec/*.rb
+Metrics/MethodLength:
+  Max: 30
+Metrics/BlockLength:
+  ExcludedMethods: ['controllers', 'describe', 'context']
+Layout/LineLength:
+  Max: 100
+  IgnoredPatterns: ['(When|Given|Then)', '(get|post|put)']
+Naming/PredicateName:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+Style/Documentation:
+  Exclude: ['**/*']
+Layout/EndOfLine:
+  Enabled: false
+Style/HashSyntax:
+  EnforcedStyle: no_mixed_keys
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false

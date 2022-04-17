@@ -1,0 +1,19 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: registry.gitlab.com/fiuba-memo2/imagen-para-katas:1.3.0
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: bundle install
+
+    - name: Run linter
+      run: bundle exec rake rubocop
+
+    - name: Run tests
+      run: bundle exec rake spec
